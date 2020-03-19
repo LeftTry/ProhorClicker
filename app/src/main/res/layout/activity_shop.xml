@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShopActivity"
+    android:background="@drawable/gradient">
+
+    <TextView
+        android:id="@+id/MoneyView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/money_0"
+        android:textSize="20sp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/colorBlack"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        tools:ignore="RelativeOverlap" />
+
+    <TextView
+        android:id="@+id/ProfitView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/money_fo_click_1"
+        android:layout_marginTop="35dp"
+        android:textSize="20sp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/colorBlack"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        tools:ignore="RelativeOverlap" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/back_shape_2"
+        android:text="@string/back"
+        android:onClick="back"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp">
+        <TableRow tools:ignore="UselessParent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"
+                android:text="@string/money_for_click_1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:id="@+id/CostView1"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/colorBlack"
+                android:text="@string/cost_1000"
+                android:layout_marginStart="20dp" />
+        </TableRow>
+        <TableRow tools:ignore="UselessParent">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_buy"
+                android:text="@string/buy"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:onClick="buy1"
+                android:layout_marginStart="20dp"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_buy"
+                android:text="@string/buy_x_10"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:onClick="buy1x10"
+                android:layout_marginStart="20dp"
+                tools:ignore="ButtonStyle" />
+        </TableRow>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            tools:ignore="UselessLeaf" />
+        <TableRow tools:ignore="UselessParent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"
+                android:text="@string/offline_profit_up"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:id="@+id/CostView2"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/colorBlack"
+                android:text="@string/cost_4000"
+                android:layout_marginStart="20dp" />
+        </TableRow>
+        <TableRow tools:ignore="UselessParent">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_buy"
+                android:text="@string/buy"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:onClick="buy2"
+                android:layout_marginStart="20dp"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_buy"
+                android:text="@string/buy_x_10"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:onClick="buy2x10"
+                android:layout_marginStart="20dp"
+                tools:ignore="ButtonStyle" />
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

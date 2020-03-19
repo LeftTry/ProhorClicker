@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">ProhorClicker</string>
+    <string name="prohor_clicker">Prohor Clicker</string>
+    <string name="shop">Shop</string>
+    <string name="money">Money :</string>
+    <string name="money_for_click">Money for click :</string>
+    <string name="back">Back</string>
+    <string name="money_for_click_1">Money for click +1</string>
+    <string name="cost">Cost:</string>
+    <string name="buy">Buy</string>
+    <string name="buy_x_10">Buy x 10</string>
+    <string name="Money">Money</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="money_fo_click_1">Money fo click: 1</string>
+    <string name="money_0">Money: 0</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="offed_music">Offed-Music</string>
+    <string name="music">Music</string>
+    <string name="volume">Volume</string>
+    <string name="sfx_on">SFX: On</string>
+    <string name="tt" />
+    <string name="off">OFF</string>
+    <string name="on">ON</string>
+    <string name="cost_1000">Cost: 1000</string>
+    <string name="offline_profit_up">Offline profit up</string>
+    <string name="cost_4000">Cost: 4000</string>
+</resources>

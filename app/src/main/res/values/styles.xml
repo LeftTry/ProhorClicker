@@ -1,0 +1,17 @@
+<resources>
+    <attr name="settings_picture" format="reference"/>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="DarkAppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@color/colorNight</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+</resources>
