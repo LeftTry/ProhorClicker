@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_settings.*
 
+
 class SettingsActivity : AppCompatActivity() {
 
     private var isMuted = false
