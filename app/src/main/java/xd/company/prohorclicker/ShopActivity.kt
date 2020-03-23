@@ -2,12 +2,15 @@ package xd.company.prohorclicker
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.media.MediaPlayer
+import android.os.Build
 import android.os.Bundle
 import android.util.Log.d
 import android.util.Log.e
 import android.view.View
 import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_settings.*
 import kotlinx.android.synthetic.main.activity_shop.*
 
 
@@ -23,6 +26,9 @@ class ShopActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
     private val percent2 = 0.5
     private val file = ReadWriteSD(tag, this)
     private var offlineProfit = 0
+    private var isMuted = false
+    private var isSFXMuted = false
+    private var player = MediaPlayer()
 
     @SuppressLint("SdCardPath", "SetTextI18n")
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,14 +46,36 @@ class ShopActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         cost2 = file.getValues("Cost2", "4000").toInt()
         CostView1.text = "Cost: $cost1"
         CostView2.text = "Cost: $cost2"
+        isMuted = intent.getBooleanExtra("isMuted", isMuted)
+        isSFXMuted = intent.getBooleanExtra("isSFXMuted", isSFXMuted)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            player.setDataSource(assets.openFd("files/backgroundMusic.mp3"))
+        }
+        player.setVolume(20F, 20F)
+        player.isLooping = true
+        player.prepare()
+        player.seekTo(intent.getIntExtra("currentPosition", player.currentPosition))
+        if(!isMuted)
+            player.start()
     }
 
-    fun back(view: View) {
+    override fun onBackPressed() {
+        super.onBackPressed()
+        back()
+    }
+
+    fun back(){
+        player.stop()
         val mainIntent = Intent(this, MainActivity::class.java)
         mainIntent.putExtra("MONEY", money)
         mainIntent.putExtra("PROFIT", profit)
+        mainIntent.putExtra("CurrentPosition", player.currentPosition)
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(mainIntent)
+    }
+
+    fun backButton(view: View) {
+        back()
     }
 
     @SuppressLint("SetTextI18n")

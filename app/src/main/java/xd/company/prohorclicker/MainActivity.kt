@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log.d
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     private var isSFXMuted = false
     private val file = ReadWriteSD(tag, this)
     private val currentTime = System.currentTimeMillis()
+    private var clicks = 0
 
     @SuppressLint("SdCardPath", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -113,11 +115,30 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("ShowToast")
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if(clicks == 1){
+            clicks++
+            Toast.makeText(this, "Do you sure to leave app?", Toast.LENGTH_LONG)
+            var Time = System.currentTimeMillis()
+            while(System.currentTimeMillis() - Time < 3000 && clicks == 1)
+                if(clicks == 2)
+                    onDestroy()
+            clicks = 0
+        }
+        if (clicks == 2){
+            onDestroy()
+        }
+    }
 
     fun shopTransition(view: View) {
         val shopIntent = Intent(this, ShopActivity::class.java)
         shopIntent.putExtra("MONEY", money)
         shopIntent.putExtra("PROFIT", profit)
+        shopIntent.putExtra("isMuted", isMuted)
+        shopIntent.putExtra("isSFXMuted", isSFXMuted)
+        shopIntent.putExtra("currentPosition", player.currentPosition)
         startActivity(shopIntent)
     }
 

@@ -6,10 +6,9 @@
             <solid
                 android:color="@color/colorYellow"/>
             <corners
-                android:topLeftRadius="15dp"
-                android:topRightRadius="15dp"
-                android:bottomLeftRadius="15dp"
-                android:bottomRightRadius="15dp" />
+                android:radius="10dp"
+                android:bottomLeftRadius="10dp"
+                android:bottomRightRadius="10dp" />
             <stroke
                 android:dashGap="10dp"/>
         </shape>

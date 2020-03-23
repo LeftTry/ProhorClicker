@@ -39,7 +39,7 @@
         android:textColor="@color/colorWhite"
         android:background="@drawable/back_shape_2"
         android:text="@string/back"
-        android:onClick="back"/>
+        android:onClick="backButton"/>
 
     <TableLayout
         android:layout_width="match_parent"

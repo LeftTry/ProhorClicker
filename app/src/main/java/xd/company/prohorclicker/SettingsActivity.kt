@@ -44,6 +44,11 @@ class SettingsActivity : AppCompatActivity() {
         
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        back()
+    }
+
     fun volumeOnOff(view: View){
         if(!isMuted) {
             volume.setImageResource(R.drawable.mute_dark)
@@ -64,7 +69,8 @@ class SettingsActivity : AppCompatActivity() {
             sfx.text = "SFX: On"
         isSFXMuted = !isSFXMuted
     }
-    fun back(view: View){
+
+    private fun back(){
         player.stop()
         val mainIntent = Intent(this, MainActivity::class.java)
         mainIntent.putExtra("isMuted", isMuted)
@@ -72,6 +78,10 @@ class SettingsActivity : AppCompatActivity() {
         mainIntent.putExtra("currentPosition", player.currentPosition)
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(mainIntent)
+    }
+
+    fun backButton(view: View){
+        back()
     }
 
     override fun onStop() {
