@@ -1,16 +1,15 @@
 package xd.company.prohorclicker
 
+
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.util.Log.d
-import android.util.Log.e
 import android.view.View
 import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_settings.*
 import kotlinx.android.synthetic.main.activity_shop.*
 
 
@@ -21,7 +20,6 @@ class ShopActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
     private val tag = "ShopActivityInfo"
     private var cost1 = 1000
     private var cost2 = 4000
-    private var costsList:Array<String> = arrayOf()
     private val percent1 = 0.4
     private val percent2 = 0.5
     private val file = ReadWriteSD(tag, this)
@@ -64,7 +62,7 @@ class ShopActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         back()
     }
 
-    fun back(){
+    private fun back(){
         player.stop()
         val mainIntent = Intent(this, MainActivity::class.java)
         mainIntent.putExtra("MONEY", money)

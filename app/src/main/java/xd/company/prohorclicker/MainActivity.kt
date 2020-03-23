@@ -121,8 +121,8 @@ class MainActivity : AppCompatActivity() {
         if(clicks == 1){
             clicks++
             Toast.makeText(this, "Do you sure to leave app?", Toast.LENGTH_LONG)
-            var Time = System.currentTimeMillis()
-            while(System.currentTimeMillis() - Time < 3000 && clicks == 1)
+            val time = System.currentTimeMillis()
+            while(System.currentTimeMillis() - time < 3000 && clicks == 1)
                 if(clicks == 2)
                     onDestroy()
             clicks = 0
