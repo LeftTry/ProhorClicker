@@ -27,6 +27,24 @@
             android:textColor="#000000"
             android:layout_gravity="center_horizontal"
             tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/level_0"
+            android:textColor="@color/colorBlack"
+            android:textSize="25sp"
+            android:layout_gravity="center_horizontal"/>
+        <ProgressBar
+            android:id="@+id/exp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:indeterminate="false"
+            android:tooltipText="Experience"
+            android:indeterminateTint="@color/colorGreen"
+            android:indeterminateTintMode="src_in"
+            style="?android:attr/progressBarStyleHorizontal"/>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
@@ -42,7 +60,7 @@
         android:onClick="mysteryClick"/>
     <ImageButton
         android:src="@drawable/main_image"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="120dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"

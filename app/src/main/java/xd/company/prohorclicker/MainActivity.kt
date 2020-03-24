@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private val file = ReadWriteSD(tag, this)
     private val currentTime = System.currentTimeMillis()
     private var clicks = 0
+    private var level = 1
 
     @SuppressLint("SdCardPath", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +41,8 @@ class MainActivity : AppCompatActivity() {
         isSFXMuted = file.getValues("isSFXMuted", false.toString()).toBoolean()
         offlineMultiple = file.getValues("OfflineMultiple", "0").toLong()
         time = file.getValues("Time", currentTime.toString()).toLong()
+        exp.progress = file.getValues("Experience", "0").toInt()
+        level = file.getValues("Level", "1").toInt()
         money = intent.getIntExtra("MONEY", money)
         profit = intent.getIntExtra("PROFIT", profit)
         isMuted = intent.getBooleanExtra("isMuted", isMuted)
@@ -51,9 +54,12 @@ class MainActivity : AppCompatActivity() {
         d(tag, "OfflineMultiple : $offlineMultiple")
         d(tag, "IsMuted : $isMuted")
         d(tag, "IsSFXMuted : $isSFXMuted")
+        d(tag, "Experience : ${exp.progress}")
+        d(tag, "Level : $level")
         offlineProfit = (currentTime - time) * offlineMultiple
         d(tag, "OfflineProfit : $offlineProfit")
         money += offlineProfit.toInt()
+        exp.max = level * 1000
         when {
             money > 1000 -> moneyView.text = "$money K"
             money > 1000000 -> moneyView.text = "$money M"
@@ -113,6 +119,7 @@ class MainActivity : AppCompatActivity() {
             money >= 1000000000000 -> moneyView.text = "$money T"
             else -> moneyView.text = "$money $"
         }
+        exp.progress += profit
     }
 
     @SuppressLint("ShowToast")
