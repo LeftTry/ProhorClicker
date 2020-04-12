@@ -61,10 +61,14 @@ class MainActivity : AppCompatActivity() {
         money += offlineProfit.toInt()
         exp.max = level * 1000
         when {
-            money > 1000 -> moneyView.text = "$money K"
-            money > 1000000 -> moneyView.text = "$money M"
-            money > 1000000000 -> moneyView.text = "$money B"
-            money >= 1000000000000 -> moneyView.text = "$money T"
+            money > 1000 -> {money /= 1000
+                moneyView.text = "$money K"}
+            money > 1000000 -> {money /= 1000
+                moneyView.text = "$money M"}
+            money > 1000000000 -> {money /= 1000
+                moneyView.text = "$money B"}
+            money >= 1000000000000 -> {money /= 1000
+                moneyView.text = "$money T"}
             else -> moneyView.text = "$money $"
         }
         if (!isMuted) {
@@ -113,10 +117,14 @@ class MainActivity : AppCompatActivity() {
                 clickPlayer.start()
         money += profit
         when {
-            money >= 1000 -> moneyView.text = "$money K"
-            money >= 1000000 -> moneyView.text = "$money M"
-            money >= 1000000000 -> moneyView.text = "$money B"
-            money >= 1000000000000 -> moneyView.text = "$money T"
+            money > 1000 -> {money /= 1000
+                moneyView.text = "$money K"}
+            money > 1000000 -> {money /= 1000
+                moneyView.text = "$money M"}
+            money > 1000000000 -> {money /= 1000
+                moneyView.text = "$money B"}
+            money >= 1000000000000 -> {money /= 1000
+                moneyView.text = "$money T"}
             else -> moneyView.text = "$money $"
         }
         exp.progress += profit

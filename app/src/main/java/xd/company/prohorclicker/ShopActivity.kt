@@ -55,6 +55,17 @@ class ShopActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         player.seekTo(intent.getIntExtra("currentPosition", player.currentPosition))
         if(!isMuted)
             player.start()
+        when {
+            money > 1000 -> {money /= 1000
+                MoneyView.text = "$money K"}
+            money > 1000000 -> {money /= 1000
+                MoneyView.text = "$money M"}
+            money > 1000000000 -> {money /= 1000
+                MoneyView.text = "$money B"}
+            money >= 1000000000000 -> {money /= 1000
+                MoneyView.text = "$money T"}
+            else -> MoneyView.text = "$money $"
+        }
     }
 
     override fun onBackPressed() {
@@ -86,10 +97,20 @@ class ShopActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         else
             return 0
         value++
-        MoneyView.text = "Money: $money"
         ProfitView.text = "Money for click: $profit"
         cost1 += (cost * percent).toInt()
         CostView1.text = "Cost: $cost1"
+        when {
+            money > 1000 -> {money /= 1000
+                MoneyView.text = "$money K"}
+            money > 1000000 -> {money /= 1000
+                MoneyView.text = "$money M"}
+            money > 1000000000 -> {money /= 1000
+                MoneyView.text = "$money B"}
+            money >= 1000000000000 -> {money /= 1000
+                MoneyView.text = "$money T"}
+            else -> MoneyView.text = "$money $"
+        }
         return value
     }
 
@@ -103,10 +124,20 @@ class ShopActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         else
             return 0
         value++
-        MoneyView.text = "Money: $money"
         ProfitView.text = "Money for click: $profit"
         cost1 += (cost * 10 * percent).toInt()
         CostView1.text = "Cost: $cost1"
+        when {
+            money > 1000 -> {money /= 1000
+                MoneyView.text = "$money K"}
+            money > 1000000 -> {money /= 1000
+                MoneyView.text = "$money M"}
+            money > 1000000000 -> {money /= 1000
+                MoneyView.text = "$money B"}
+            money >= 1000000000000 -> {money /= 1000
+                MoneyView.text = "$money T"}
+            else -> MoneyView.text = "$money $"
+        }
         return value
     }
 
@@ -129,9 +160,9 @@ class ShopActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         buy(view, cost1, percent1, profit)
     }
     fun buy2x10(view: View) {
-        buy(view, cost2, percent2, offlineProfit)
+        buyX10(view, cost2, percent2, offlineProfit)
     }
     fun buy2(view: View) {
-        buyX10(view, cost2, percent2, offlineProfit)
+        buy(view, cost2, percent2, offlineProfit)
     }
 }
