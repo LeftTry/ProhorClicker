@@ -37,14 +37,14 @@
             android:layout_gravity="center_horizontal"/>
         <ProgressBar
             android:id="@+id/exp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="20dp"
             android:layout_gravity="center_horizontal"
             android:indeterminate="false"
             android:tooltipText="Experience"
             android:indeterminateTint="@color/colorGreen"
             android:indeterminateTintMode="src_in"
-            style="?android:attr/progressBarStyleHorizontal"/>
+            style="@android:style/Widget.ProgressBar.Horizontal"/>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
