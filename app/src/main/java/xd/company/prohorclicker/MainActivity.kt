@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log.d
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -41,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         isSFXMuted = file.getValues("isSFXMuted", false.toString()).toBoolean()
         offlineMultiple = file.getValues("OfflineMultiple", "0").toLong()
         time = file.getValues("Time", currentTime.toString()).toLong()
-        exp.progress = file.getValues("Experience", "0").toInt()
         level = file.getValues("Level", "1").toInt()
         money = intent.getIntExtra("MONEY", money)
         profit = intent.getIntExtra("PROFIT", profit)
@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         d(tag, "OfflineProfit : $offlineProfit")
         money += offlineProfit.toInt()
         exp.max = level * 1000
+        exp.progress = money
         when {
             money > 1000 -> {money /= 1000
                 moneyView.text = "$money K"}
@@ -93,6 +94,7 @@ class MainActivity : AppCompatActivity() {
         super.onPause()
         file.checkExternalMedia()
         file.writeToSDFile("Money", money.toString())
+        file.writeToSDFile("Level", level.toString())
         file.writeToSDFile("Time", Calendar.getInstance().timeInMillis.toString())
     }
 
@@ -127,6 +129,17 @@ class MainActivity : AppCompatActivity() {
                 moneyView.text = "$money T"}
             else -> moneyView.text = "$money $"
         }
+        if (exp.progress == exp.max) {
+            level++
+            levelView.text = "Level: $level"
+            val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+            builder.setMessage("Your level is now $level")
+                .setTitle("Level up!")
+            builder.setPositiveButton("Ok") { dialog, id ->
+                dialog.cancel()
+            }
+            val dialog = builder.create()
+        }
         exp.progress += profit
     }
 
@@ -139,11 +152,11 @@ class MainActivity : AppCompatActivity() {
             val time = System.currentTimeMillis()
             while(System.currentTimeMillis() - time < 3000 && clicks == 1)
                 if(clicks == 2)
-                    onDestroy()
+                    onPause()
             clicks = 0
         }
         if (clicks == 2){
-            onDestroy()
+            onPause()
         }
     }
 
